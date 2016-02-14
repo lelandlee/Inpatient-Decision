@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Inpatient Decision</title>
+		<script src="http://d3js.org/d3.v3.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.8.0/d3-legend.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+  </head>
+
+	<body>
+		<div id="legendArea"></div>
+
+		<dialog  id="modal">
+			<h2 id='title'>Welcome to Inpatient Decision:</h2>
+			<p>Select a medical procedure and we rank different hospitals in the State of New York that you should go to. Our algorithm is based off the Risk Adjusted Rate of the Inpatient Quality Indicators along with other features.</p>
+		</dialog>
+
+		<header id="search-area">
+			<input type="text submit" id="seach-query" placeholder="Search For Medical Procedures" class="focus seach-set" value=''
+				onkeydown="if (event.keyCode == 13) { search(); return false; }" list="IQI_values">
+			<datalist id="IQI_values">
+    	</datalist>
+			<input type="button" id="search-button" value='search' class= "search-set" onclick=search()>
+		</header>
+
+		<div id="chartArea"></div>
+
+		<script src="js/helper.js"></script>
+		<script src="js/legendComponent.js"></script>
+		<script src="js/tableComponent.js"></script>
+		<script src="js/surveyComponent.js"></script>
+		<script src="js/mainGraphComponent.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+
+</html>

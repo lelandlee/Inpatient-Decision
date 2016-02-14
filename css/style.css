@@ -1,0 +1,60 @@
+body {
+  font-family: 'monospace';
+}
+
+#modal {
+  max-width: 500px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.area {
+  stroke: none;
+  opacity: .5;
+}
+
+#chartArea {
+	text-align: center;
+}
+
+#legendArea {
+	text-align: center;
+}
+
+.line {
+  fill: none;
+  stroke-width: 2px;
+}
+
+#search-area {
+	text-align: center;
+	margin: 50px;
+}
+
+/* Input styling adapted from - http://callmenick.com/post/various-css-input-text-styles */
+input {
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  transition: border 0.3s;
+}
+input:focus,
+input.focus {
+  border: solid 5px #969696;
+}
+
+#seach-query {
+  width: 300px;
+}
+
+tbody tr:first-child {
+  background-color: yellow;
+}
