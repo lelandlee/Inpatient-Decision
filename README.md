@@ -2,6 +2,8 @@
 
 This web app allows consumers to explore potential hospitals to visit when they must undergo a specific procedure. The hospitals are ranked by a relatively simple algorithm that uses features such as Risk Adjusted Rate (RAR) of the Inpatient Quality Indicators, patients who have already undergone that procedure at the same hospital, variance of RAR, etc.
 
+This was created at TreeHacks 2016 (a hackathon at Stanford University). A live version is located [here](https://lelandlee.github.io/Inpatient-Decision)
+
 ### The Benefit
 The problem is that consumers do not have an easy way to determine the quality of inpatient care at hospitals beyond knowing that a hospital has a specific treatment. Now with this tool consumers can explore different hospitals and see how they stack up in quality of care for different medical procedures.
 
