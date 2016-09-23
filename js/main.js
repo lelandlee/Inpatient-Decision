@@ -107,13 +107,17 @@ function searchFor(IQI_value) {
 		const mostRecent = _.max(group, (d) => d['Year']);
 
 		// Might want to consider a specific type of algorithm to run here...
-		const val = mostRecent['Risk Adjusted Rate'] || mostRecent['Observed Rate'];
-		return !_.isNaN(val) ? -val : Infinity;
+    const consumerVoice = hospitalSurveyMapScoped[mostRecent['Hospital Name']] || {}
+    const consumerVal = _.has(consumerVoice, 'mean') ? consumerVoice['mean'] : 1
+		const officialVoice = d3.max([mostRecent['Risk Adjusted Rate'], mostRecent['Observed Rate']]);
+    const varianceEffect = 300 / (mostRecent['Upper 95CI RAR'] - mostRecent['Lower 95CI RAR']); // Smaller is better
+
+		return -officialVoice - consumerVal*10 - varianceEffect;
 	})
 
 	// Taking the top 5
 	const top5 = _.take(groupedRatingAscending, 5);
-	const max = d3.max(top5, (hospital) => d3.max(hospital, (d) => d['Upper 95CI RAR'])) || 1000
+	const max = d3.min([d3.max(top5, (hospital) => d3.max(hospital, (d) => d['Upper 95CI RAR'])), 1000])
 	_.forEach(top5, (hospital) => visualization(hospital, max))
 }
 
